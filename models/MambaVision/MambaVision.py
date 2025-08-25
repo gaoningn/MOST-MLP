@@ -791,4 +791,5 @@ if __name__ == '__main__':
     motions = torch.randn(4, 11, 30, 120, 20).cuda()
     images = torch.randn(4, 11, 30, 128, 128).cuda()
     outputs = model(motions, images)
+
     print(outputs)

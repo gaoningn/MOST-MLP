@@ -34,4 +34,5 @@ if __name__ == '__main__':
     net = ImageEncoder().cuda()
     x = torch.randn(2, 11, 20, 128, 128).cuda()
     y = net(x)
+
     print(y.shape)

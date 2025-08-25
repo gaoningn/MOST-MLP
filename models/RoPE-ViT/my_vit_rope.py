@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import rope_vit_main.deit.models_v2 as rope_model
-import rope_vit_main.deit.models_v2_rope as rope_model_v2
+import models_v2 as rope_model
+import models_v2_rope as rope_model_v2
 
 from functools import partial
 from einops import rearrange
@@ -125,3 +125,4 @@ class My_RopeVit(nn.Module):
         x = torch.cat((x, y), dim=1)
         x = self.head(x)
         return x
+

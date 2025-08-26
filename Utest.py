@@ -3,7 +3,10 @@ import torch
 import torch.nn as nn
 import numpy as np
 
-import rope_vit_main.models.my_vit_rope as myvit
+import models.RoPE-ViT.my_vit_rope as myrope
+import models.RLRR-ViT.RLRR as myrlrr
+import models.MambaVision.MambaVision as mymamba
+import models.MOST-MLP.network as mynetwork
 
 from sklearn.metrics import confusion_matrix, roc_curve, auc
 from sklearn.preprocessing import label_binarize
@@ -71,7 +74,8 @@ def model_test(model, data_path, patient_num, device):
 if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     test_data_path = './data'
-    state_dict_path = './parameters/model_weights_9_91.00.pth'
-    model = myvit.My_RopeVit().to(device)
+    state_dict_path = './parameters/RoPE-ViT.pth'
+    model = myrope.My_RopeVit().to(device)
     model.load_state_dict(torch.load(state_dict_path))
+
     model_test(model, test_data_path, 5, device)
